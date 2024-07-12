@@ -1,0 +1,158 @@
+@media all and (max-width:767px) {
+
+    body,
+    html {
+        font-size: 6px;
+    }
+
+    .modal {
+        width: 400px;
+        height: 200px;
+    }
+
+    .modaltext h1 {
+        font-size: 4rem;
+        padding-bottom: 10px;
+    }
+
+    .modalbtn {
+        width: 80px;
+        height: 25px;
+        line-height: 25px;
+    }
+
+    .soundwrap {
+        width: 40px;
+        top: 20px;
+        left: 30px;
+    }
+
+    .soundwrap img {
+        width: 40px;
+    }
+
+    .menu {
+        top: 30px;
+        right: 30px;
+    }
+
+    .menu-close {
+        top: 30px;
+        right: 30px;
+    }
+
+    .menu-trigger {
+        width: 30px;
+        height: 20px;
+    }
+
+    .menu-trigger span:nth-child(2) {
+        top: 9px;
+    }
+
+    .menu-close {
+        width: 30px;
+        height: 20px;
+    }
+
+    .main-text {
+        font-size: 6rem;
+        top: 70%;
+    }
+
+    .intro-text {
+        max-width: 320px;
+    }
+
+    .main-title .roll-text {
+        width: 66px;
+        height: 50px;
+    }
+
+    .sun.animate {
+        opacity: 1;
+        transform: translate(50vw, -60vh);
+    }
+
+    .moon.animate {
+        opacity: 1;
+        transform: translate(50vw, -60vh);
+    }
+
+    .moon2 {
+        top: 25vh;
+        left: 50vw;
+        width: 200px;
+    }
+
+    .moon,
+    .sun {
+        max-width: 200px;
+    }
+
+    .trigger::before {
+        display: none;
+    }
+
+    .port-text {
+        top: 60%;
+        left: 0;
+        padding-left: 30px;
+    }
+
+    .port-text::before {
+        display: none;
+    }
+
+    .con-btn {
+        width: 90px;
+        height: 25px;
+        border-radius: 10px;
+    }
+
+    .con-btn p {
+        line-height: 25px;
+    }
+
+    #contact {
+        height: 400px;
+    }
+
+    .con-title {
+        font-size: 8rem;
+    }
+
+    .con-p {
+        max-width: 280px;
+    }
+
+    .contact-title {
+        font-size: 8rem;
+    }
+
+    .modal {
+        width: 300px;
+    }
+
+    .modalimg {
+        display: none;
+    }
+
+    .modaltext {
+        width: 100%;
+        padding: 0;
+        text-align: center;
+        font-size: 2rem;
+    }
+
+    .modalbtn {
+        width: 100%;
+        height: 100%;
+        justify-content: center;
+        font-size: 2rem;
+    }
+
+    .soundtext {
+        display: none;
+    }
+}

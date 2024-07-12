@@ -1,0 +1,88 @@
+@media all and (max-width:1199px) {
+
+    body,
+    html {
+        font-size: 8px;
+    }
+
+    .modal {
+        width: 700px;
+        height: 400px;
+    }
+
+    .main-title .roll-text {
+        width: 145px;
+        height: 100px;
+    }
+
+    .sun.animate {
+        opacity: 1;
+        transform: translate(55vw, -40vh);
+    }
+
+    .moon.animate {
+        opacity: 1;
+        transform: translate(55vw, -40vh);
+    }
+
+    .moon2 {
+        top: 30vh;
+        left: 65vw;
+        width: 300px;
+    }
+
+    .trigger {
+        background-position: 50% 50%;
+    }
+
+    .trigger::before {
+        max-width: 300px;
+    }
+
+    .port-text::before {
+        height: 200px;
+    }
+
+    .con-p {
+        line-height: 20px;
+    }
+
+    .port-text span {
+        padding-bottom: 20px;
+    }
+
+    .con-btn {
+        width: 120px;
+        height: 30px;
+        border-radius: 10px;
+    }
+
+    .con-btn p {
+        line-height: 30px;
+    }
+
+    .contact-title {
+        padding-bottom: 50px;
+    }
+
+    .soundtext {
+        right: 30%;
+    }
+}
+
+@media all and (max-width:999px) {
+    .trigger::before {
+        max-width: 250px;
+    }
+
+    .port-text {
+        padding-left: 50px;
+    }
+
+    .contact-text {
+        gap: 0px;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+}
