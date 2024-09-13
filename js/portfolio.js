@@ -1,5 +1,21 @@
 $(document).ready(function () {
 
+  lastScrollTop = 0;
+  delta = 15;
+
+  $(window).scroll((event) => {
+    let nowScroll = $(this).scrollTop();
+
+    if (Math.abs(lastScrollTop - nowScroll) <= delta) return;
+    if (nowScroll > lastScrollTop && lastScrollTop > 0) {
+      $('.soundwrap,.innermenu').css('top', '-80px')
+    } else {
+      $('.soundwrap,.innermenu').css('top', '50px')
+    }
+    lastScrollTop = nowScroll
+  })
+  // 헤더부분 스크롤시
+
   const audio = document.querySelector('.sound');
   const audioWraaper = document.querySelector('.soundwrap');
   let isPlay = false;
@@ -17,6 +33,7 @@ $(document).ready(function () {
   }
 
   audioWraaper.addEventListener('click', toggleBgm);
+  // bgm
 
   $('.modalbtnY').click(function () {
     $('#modal').fadeOut();
@@ -57,33 +74,146 @@ $(document).ready(function () {
     $('.cursor').removeClass('active');
   })
 
+  $('.innermenu').mouseenter(function () {
+    $('.cursor').addClass('active');
+  })
+  $('.innermenu').mouseleave(function () {
+    $('.cursor').removeClass('active');
+  })
+
+  $('.modalbtn span').mouseenter(function () {
+    $('.cursor').addClass('modalActive')
+  })
+  $('.modalbtn span').mouseleave(function () {
+    $('.cursor').removeClass('modalActive')
+  })
+
+  $('.github').hover(() => {
+    $('.cursor').addClass('active');
+  }, () => {
+    $('.cursor').removeClass('active');
+  })
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  const gsapText = gsap.timeline();
+  gsapText
+    .from('#about .num1', { autoAlpha: 0, duration: 1, y: 50 })
+    .to('#about .num1', { autoAlpha: 0, duration: 1 }, '+=1')
+
+    .from('#about .num2', { autoAlpha: 0, duration: 1, y: 50 }, '-=1')
+    .to('#about .num2', { autoAlpha: 0, duration: 1 }, '+=1')
+
+    .from('#about .num3', { autoAlpha: 0, duration: 1, y: 50 }, '-=1')
+    .to('#about .num3', { autoAlpha: 0, duration: 1 }, '+=1')
+
+    .from('#about .num4', { autoAlpha: 0, duration: 1, y: 50 }, '-=1')
+    .to('#about .num4', { autoAlpha: 0, duration: 1 }, '+=1')
+
+    .from('#about .num5', { autoAlpha: 0, duration: 1, y: 50 })
 
 
-  var burger = $('.menu-trigger');
+  ScrollTrigger.create({
+    animation: gsapText,
+    trigger: "#about",
+    start: "top top",
+    end: "+=4000",
+    scrub: true,
+    pin: true,
+    markers: false,
+    anticipatePin: 1,
+  })
+  //about
 
-  burger.each(function (index) {
-    var $this = $(this);
+  const item1 = gsap.timeline({
+    scrollTrigger: {
+      trigger: '.portfolio-wrap',
+      start: '-15% 50%',
+      end: '0% 50%',
+      // markers: true,
+      scrub: 3
+    }
+  })
 
-    $this.on('click', function (e) {
-      e.preventDefault();
-      $(this).toggleClass('active-' + (index + 1));
-    })
+  item1
+    .to('.portfolio-wrap .item1', { width: '100%' }, 'w')
+
+  const pin = gsap.timeline({
+    scrollTrigger: {
+      trigger: '.portfolio-wrap',
+      start: '0 0',
+      end: '100% 150%',
+      scrub: 3,
+      // markers: true
+    }
+  })
+
+  pin
+    .to('.portfolio-wrap .item2', { transform: 'translateY(0)' }, "a+=0.2")
+    .to('.portfolio-wrap .item2', { width: '100%' }, "a")
+    .to('.portfolio-wrap .item1 .port-wrap', { opacity: 0 }, "a+=0.2")
+
+    .to('.portfolio-wrap .item3', { transform: 'translateY(0)' }, "b+=0.2")
+    .to('.portfolio-wrap .item3', { width: '100%' }, "b")
+    .to('.portfolio-wrap .item2 .port-wrap', { opacity: 0 }, "b+=0.2")
+
+    .to('.portfolio-wrap .item4', { transform: 'translateY(0)' }, "c+=0.2")
+    .to('.portfolio-wrap .item4', { width: '100%' }, "c")
+    .to('.portfolio-wrap .item3 .port-wrap', { opacity: 0 }, "c+=0.2")
+
+  // gsap.to('.portfolio-wrap .item4 .port-wrap', {
+  //   scrollTrigger: {
+  //     trigger: '.portfolio-wrap',
+  //     start: "100% 100%",
+  //     end: "110% 100%",
+  //     scrub: 3,
+  //     // markers: true
+  //   }
+  // })
+
+  window.addEventListener('load', () => {
+    ScrollTrigger.refresh();
   });
 
+  window.addEventListener('resize', () => {
+    ScrollTrigger.refresh();
+  });
 
-  const nonClick = document.querySelectorAll(".portfolio-list li a");
+  gsap.utils.toArray('.reveal').forEach((item) => {
 
-  function handleClick(event) {
-    nonClick.forEach((e) => {
-      e.classList.remove("active");
-    });
-    event.target.classList.add("active");
+    ScrollTrigger.create({
+      trigger: item,
+      start: 'top bottom',
+      end: 'bottom top',
+      onEnter: () => { animate(item) }
+    })
+    item.style.opacity = '0'
+  })
+
+  const animate = (item) => {
+
+    let x = 0;
+    let y = 0;
+    let delay = item.dataset.delay;
+
+    if (item.classList.contains('Rright')) {
+      x = '100%'
+      y = 0
+    } else if (item.classList.contains('Rbtm')) {
+      x = 0
+      y = '100%'
+    } else {
+      x = '-100%'
+      y = 0
+    }
+
+    gsap.fromTo(item,
+      { autoAlpha: 0, x: x, y: y },
+      { autoAlpha: 1, x: 0, y: 0, delay: delay, duration: 1.25, overwrite: "auto", ease: "expo" }
+    )
   }
 
-  nonClick.forEach((e) => {
-    e.addEventListener("click", handleClick);
-  });
-  // nav
+  //contact
 
   // var max = $(window).height();
   // $(window).scroll(function () {
@@ -94,36 +224,39 @@ $(document).ready(function () {
   //     $(".bg-shadow").css({ opacity: 0, zIndex: -1 });
   //   }
   // });
-  document.addEventListener("scroll", () => {
-    const sections = document.querySelectorAll(".trigger");
-    const scrollPosition = window.scrollY;
 
-    sections.forEach((section, index) => {
-      const overlay = section.querySelector(".bg-shadow");
+  //수정
+  // document.addEventListener("scroll", () => {
+  //   const sections = document.querySelectorAll(".trigger");
+  //   const scrollPosition = window.scrollY;
 
-      if (index > 0) {
-        const previousSection = sections[index - 1];
-        const previousOverlay = previousSection.querySelector(".bg-shadow");
-        const previousSectionTop = previousSection.offsetTop;
-        const previousSectionHeight = previousSection.offsetHeight;
+  //   sections.forEach((section, index) => {
+  //     const overlay = section.querySelector(".bg-shadow");
 
-        if (
-          scrollPosition > previousSectionTop &&
-          scrollPosition < previousSectionTop + previousSectionHeight
-        ) {
-          const opacity = Math.min(
-            1,
-            (scrollPosition - previousSectionTop) / previousSectionHeight
-          );
-          previousOverlay.style.backgroundColor = `rgba(0, 0, 0, ${opacity})`;
-        } else {
-          previousOverlay.style.backgroundColor = "rgba(0, 0, 0, 0)";
-        }
-      }
+  //     if (index > 0) {
+  //       const previousSection = sections[index - 1];
+  //       const previousOverlay = previousSection.querySelector(".bg-shadow");
+  //       const previousSectionTop = previousSection.offsetTop;
+  //       const previousSectionHeight = previousSection.offsetHeight;
 
-      overlay.style.backgroundColor = "rgba(0, 0, 0, 0)";
-    });
-  });
+  //       if (
+  //         scrollPosition > previousSectionTop &&
+  //         scrollPosition < previousSectionTop + previousSectionHeight
+  //       ) {
+  //         const opacity = Math.min(
+  //           1,
+  //           (scrollPosition - previousSectionTop) / previousSectionHeight
+  //         );
+  //         previousOverlay.style.backgroundColor = `rgba(0, 0, 0, ${opacity})`;
+  //       } else {
+  //         previousOverlay.style.backgroundColor = "rgba(0, 0, 0, 0)";
+  //       }
+  //     }
+
+  //     overlay.style.backgroundColor = "rgba(0, 0, 0, 0)";
+  //   });
+  // });
+
 
   const main = document.querySelector("#main");
   const mainText = document.querySelector(".main-text");
@@ -157,7 +290,7 @@ $(document).ready(function () {
 
   setInterval(toggleTheme, 3000);
 
-  // 포트폴리오 패럴시 opacity
+  //main
 
   let mouseCursor = document.querySelector(".cursor");
   let navLinks = document.querySelectorAll(".port-img a");
@@ -169,41 +302,5 @@ $(document).ready(function () {
   }
   // 커서
 
-  //   gsap.utils.toArray(".trigger").forEach((panel, i) => {
-  //     ScrollTrigger.create({
-  //       trigger: panel,
-  //       start: "top top",
-  //       pin: true,
-  //       pinSpacing: false,
-  //       scrub: 1,
-  //     });
-  //   });
-  // 패럴렉스
 
-  // const ani4 = gsap.timeline();
-  // ani4.from(".aekyung", {
-  //     autoAlpha: 0,
-  //     scale: .5,
-  //     width: "100vw",
-  //     height: "100vh"
-  // })
-
-  // ScrollTrigger.create({
-  //     animation: ani4,
-  //     trigger: ".trigger",
-  //     start: "top top",
-  //     end: "+=3000",
-  //     scrub: true,
-  //     pin: true,
-  //     markers: false,
-  //     anticipatePin: 1
-  // });
-
-  // 포트폴리오 섹션 스크롤 시 이전 포트폴리오 어둡게 (GSAP)
-  // 인트로 에니메이션 전환 관련 변경
-  // 마우스도 bg 컬러에 맞춰 색 변경
-  // 인트로 타이틀 1개로 변경해서 에니메이션 적용
-
-  AOS.init();
-  //   gsap.registerPlugin(ScrollTrigger);
 }); //

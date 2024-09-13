@@ -2,7 +2,7 @@
 
     body,
     html {
-        font-size: 6px;
+        font-size: 7px;
     }
 
     .modal {
@@ -31,32 +31,12 @@
         width: 40px;
     }
 
-    .menu {
-        top: 30px;
-        right: 30px;
-    }
-
-    .menu-close {
-        top: 30px;
-        right: 30px;
-    }
-
-    .menu-trigger {
-        width: 30px;
-        height: 20px;
-    }
-
-    .menu-trigger span:nth-child(2) {
-        top: 9px;
-    }
-
-    .menu-close {
-        width: 30px;
-        height: 20px;
+    .innermenu {
+        display: none;
     }
 
     .main-text {
-        font-size: 6rem;
+        font-size: 5rem;
         top: 70%;
     }
 
@@ -65,8 +45,8 @@
     }
 
     .main-title .roll-text {
-        width: 66px;
-        height: 50px;
+        width: 65px;
+        height: 40px;
     }
 
     .sun.animate {
@@ -90,6 +70,10 @@
         max-width: 200px;
     }
 
+    .about-item {
+        font-size: 5rem;
+    }
+
     .trigger::before {
         display: none;
     }
@@ -111,23 +95,38 @@
     }
 
     .con-btn p {
-        line-height: 25px;
+        line-height: 24px;
     }
 
     #contact {
-        height: 400px;
+        height: 100%;
     }
 
     .con-title {
-        font-size: 8rem;
+        font-size: 5rem;
     }
 
     .con-p {
         max-width: 280px;
     }
 
-    .contact-title {
-        font-size: 8rem;
+    .con-li {
+        padding-bottom: 20px;
+        gap: 10px;
+    }
+
+    .inner-contact {
+        padding: 50px 30px;
+    }
+
+    .contact-title,
+    .goal-title {
+        font-size: 5rem;
+        padding-bottom: 30px;
+    }
+
+    .goal p {
+        line-height: 25px;
     }
 
     .modal {

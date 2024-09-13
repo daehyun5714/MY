@@ -7,7 +7,6 @@
   <title>portfolio</title>
 
   <link rel="stylesheet" href="./css/reset.css" />
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap" rel="stylesheet" />
@@ -52,43 +51,19 @@
 
   <div class="cursor"></div>
 
-  <div class="innermenuback">
-    <div class="innermenu">
-      <li><a href="#main">MAIN</a></li>
-      <li class="nav-click">
-        <a href="javascript:;">PORTFOLIO</a>
-        <ul class="portfolio-list">
-          <li><a href="#aekyung">aekyung</a></li>
-          <li><a href="#CJ">CJ</a></li>
-          <li><a href="#YG">YG</a></li>
-        </ul>
-      </li>
-      <li><a href="#contact">CONTACT</a></li>
-    </div>
-
-    <a href="javascript:;" class="menu-close">
-      <span></span>
-      <span></span>
-    </a>
-  </div>
+  <ul class="innermenu">
+    <li><a href="#main">MAIN</a></li>
+    <li><a href="#aekyung">PORTFOLIO</a></li>
+    <li><a href="#contact">CONTACT</a></li>
+  </ul>
 
 
   <section id="main">
-
-    <div class="menu">
-      <a class="menu-trigger" href="#">
-        <span></span>
-        <span></span>
-        <span></span>
-      </a>
-    </div>
-
 
     <div class="main-wrap">
 
       <img src="./img/moon.png" class="moon" />
       <img src="./img/moon2.png" class="moon2">
-
       <img src="./img/sun.png" class="sun" />
 
       <div class="main-text">
@@ -102,121 +77,187 @@
         <p class="main-title">김대현입니다</p>
       </div>
     </div>
-
-    <div class="intro-wrap">
-
-      <p class="intro-text" data-aos="flip-left" data-aos-duration="2000" data-aos-once="true">
-        매사에 몰두하는 저는 끊임없이 변화하는 웹 트렌드에<br />
-        매우 적합한 인재라고 생각합니다.<br />
-        이러한 마인드로 웹 개발에 대한 열정과 의지로 성장하고자 합니다.
-      </p>
-
-    </div>
   </section>
   <!-- main -->
 
-  <section id="aekyung" class="trigger">
-    <div class="aekyung port-wrap">
-      <div class="port-text">
-        <h2 class="con-title">AEKYUNG</h2>
-        <p class="con-p">
-          애경 공식 사이트의 랜딩 페이지를<br />클론코딩하여 만든 반응형
-          웹사이트 입니다.
-        </p>
-        <span>#CSS #J-QUERY #SWIPER</span>
-        <div class="con-btn">
-          <a href="https://daehyun5714.github.io/aekyung/" target="_blank">
-            <p>VIEW SITE</p>
-          </a>
-          <div class="btnbg"></div>
-        </div>
-      </div>
+  <section id="about">
 
-      <!-- <div class="port-img">
-          <a href="http://eogus.dothome.co.kr" target="_blank"
-            ><img src="img/portimg1.png" alt="애경"
-          /></a>
-        </div> -->
-    </div>
-
-    <div class="bg-shadow"></div>
+    <div class="about-item num1">기본에 충실하고</div>
+    <div class="about-item num2">더 디테일한</div>
+    <div class="about-item num3">코딩</div>
+    <div class="about-item num4">작은 차이가</div>
+    <div class="about-item num5">큰 변화를 만든다</div>
   </section>
-  <!-- portfolio -->
+  <!-- about -->
 
-  <section id="CJ" class="trigger">
-    <div class="CJ port-wrap">
-      <div class="port-text">
-        <h2 class="con-title">CJ GROUP</h2>
-        <p class="con-p">
-          CJ GROUP 공식 사이트의 랜딩 페이지를<br />클론코딩하여 만든 반응형
-          웹사이트 입니다.
-        </p>
-        <span>#CSS #J-QUERY #SWIPER #AOS</span>
-        <div class="con-btn cjbtn">
-          <a href="https://daehyun5714.github.io/CJ/" target="_blank">
-            <p>VIEW SITE</p>
-          </a>
-          <div class="btnbg"></div>
+  <div class="portfolio-wrap">
+    <div class="item-wrap">
+      <section id="aekyung" class="trigger item1">
+        <div class="aekyung port-wrap">
+          <div class="video-wrap">
+            <div class="video-bg"></div>
+            <video autoplay loop muted>
+              <source src="./video/aekyung-video.mp4">
+            </video>
+          </div>
+          <div class="port-text">
+            <h2 class="con-title">AEKYUNG</h2>
+            <p class="con-p">
+              애경 공식 사이트의 랜딩 페이지를<br />클론코딩하여 만든 반응형
+              웹사이트 입니다.
+            </p>
+            <ul class="con-li">
+              <li>기여도:100%</li>
+              <li>#CSS</li>
+              <li>#J-QUERY</li>
+              <li>#SWIPER</li>
+              <li>#JS</li>
+            </ul>
+            <div class="con-btn">
+              <a href="https://daehyun5714.github.io/aekyung/" target="_blank">
+                <p>VIEW SITE</p>
+              </a>
+              <div class="btnbg"></div>
+            </div>
+          </div>
         </div>
-      </div>
+      </section>
+      <!-- portfolio -->
 
-      <!-- <div class="port-img">
-          <a href="http://eogus.dothome.co.kr" target="_blank"
-            ><img src="img/portimg2.png" alt="CJ"
-          /></a>
-        </div> -->
-    </div>
-
-    <div class="bg-shadow"></div>
-  </section>
-  <!-- portfolio -->
-
-  <section id="YG" class="trigger">
-    <div class="YG port-wrap">
-      <div class="port-text">
-        <h2 class="con-title">YG</h2>
-        <p class="con-p">
-          YG 공식 사이트의 랜딩 페이지를<br />GDWEB과 같은 레퍼런스 사이트를
-          참고하여 만든 반응형 웹사이트 입니다.
-        </p>
-        <span>#CSS #J-QUERY #SWIPER #AOS</span>
-        <div class="con-btn ygbtn">
-          <a href="https://daehyun5714.github.io/YG/" target="_blank">
-            <p>VIEW SITE</p>
-          </a>
-          <div class="btnbg"></div>
+      <section id="CJ" class="trigger pin item2">
+        <div class="CJ port-wrap">
+          <div class="video-wrap">
+            <div class="video-bg"></div>
+            <video autoplay loop muted>
+              <source src="./video/cj-video.mp4">
+            </video>
+          </div>
+          <div class="port-text">
+            <h2 class="con-title">CJ GROUP</h2>
+            <p class="con-p">
+              CJ GROUP 공식 사이트의 랜딩 페이지를<br />클론코딩하여 만든 반응형
+              웹사이트 입니다.
+            </p>
+            <ul class="con-li">
+              <li>기여도:100%</li>
+              <li>#CSS</li>
+              <li>#J-QUERY</li>
+              <li>#SWIPER</li>
+              <li>#JS</li>
+              <li>#AOS</li>
+            </ul>
+            <div class="con-btn cjbtn">
+              <a href="https://daehyun5714.github.io/CJ/" target="_blank">
+                <p>VIEW SITE</p>
+              </a>
+              <div class="btnbg"></div>
+            </div>
+          </div>
         </div>
-      </div>
-      <!-- 
-        <div class="port-img">
-          <a href="http://eogus.dothome.co.kr" target="_blank"
-            ><img src="img/portimg3.png" alt="YG"
-          /></a>
-        </div> -->
-    </div>
 
-    <div class="bg-shadow"></div>
-  </section>
-  <!-- portfolio -->
+      </section>
+      <!-- portfolio -->
+
+      <section id="YG" class="trigger pin item3">
+        <div class="YG port-wrap">
+          <div class="video-wrap">
+            <div class="video-bg"></div>
+            <video autoplay loop muted>
+              <source src="./video/yg-video.mp4">
+            </video>
+          </div>
+          <div class="port-text">
+            <h2 class="con-title">YG</h2>
+            <p class="con-p">
+              YG 공식 사이트의 랜딩 페이지를<br />GDWEB과 같은 레퍼런스 사이트를
+              참고하여 만든 반응형 웹사이트 입니다.
+            </p>
+            <ul class="con-li">
+              <li>기여도:100%</li>
+              <li>#CSS</li>
+              <li>#J-QUERY</li>
+              <li>#SWIPER</li>
+              <li>#JS</li>
+              <li>#AOS</li>
+            </ul>
+            <div class="con-btn ygbtn">
+              <a href="https://daehyun5714.github.io/YG/" target="_blank">
+                <p>VIEW SITE</p>
+              </a>
+              <div class="btnbg"></div>
+            </div>
+          </div>
+        </div>
+
+      </section>
+      <!-- portfolio -->
+
+      <section id="hubdnc" class="trigger pin item4">
+        <div class="hubdnc port-wrap">
+          <div class="video-wrap">
+            <div class="video-bg"></div>
+            <img src="./video/hubdnc-video.gif" alt="허브디앤씨">
+          </div>
+          <div class="port-text">
+            <h2 class="con-title">HUBDNC</h2>
+            <p class="con-p">
+              HUBDNC 사이트를 참고하여<br />
+              자유롭게 커스텀해서 만든 반응형 웹사이트 입니다.
+            </p>
+            <ul class="con-li">
+              <li>기여도:100%</li>
+              <li>#CSS</li>
+              <li>#J-QUERY</li>
+              <li>#SWIPER</li>
+              <li>#JS</li>
+            </ul>
+            <div class="con-btn hubdncbtn">
+              <a href="https://daehyun5714.github.io/hubdnc/" target="_blank">
+                <p>VIEW SITE</p>
+              </a>
+              <div class="btnbg"></div>
+            </div>
+          </div>
+        </div>
+
+      </section>
+      <!-- portfolio -->
+    </div>
+  </div>
 
   <section id="contact">
-    <div class="contact">
-      <div class="contact-text" data-aos="zoom-in" data-aos-duration="1500" data-aos-once="true">
-        <div class="contact-textwrap">
-          <div class="contact-title">CONTACT</div>
+    <div class="inner-contact">
+      <div class="goal">
+        <h2 class="goal-title reveal Rleft">MY GOAL</h2>
+        <p class="reveal Rbtm">
+          매사에 몰두하는 저는 끊임없이 변화하는<br /> 웹 트렌드에 매우 적합한 인재라고 생각합니다.<br />
+          이러한 마인드로 웹 개발에 대한 <span>열정과 의지로 성장</span>하고자 합니다.
+        </p>
+      </div>
+
+      <div class="contact">
+        <div class="contact-title reveal Rright">CONTACT</div>
+        <div class="contact-text reveal Rbtm">
           <div class="email">eogus5714@gmail.com</div>
           <div class="phone">010.5714.4859</div>
+          <div class="github">
+            <a href="https://github.com/daehyun5714?tab=repositories" target="_blank">
+              <img src="./img/icon/github.png">
+            </a>
+          </div>
         </div>
       </div>
     </div>
   </section>
   <!-- contact -->
 
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
 
+
+
+  <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.22/bundled/lenis.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollToPlugin.min.js"></script>
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script type="text/javascript" src="js/jquery-3.6.0.js"></script>
   <script type="text/javascript" src="js/jquery-ui.js"></script>
   <script type="text/javascript" src="js/jquery.transit.min.js"></script>
