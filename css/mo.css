@@ -70,6 +70,19 @@
         max-width: 200px;
     }
 
+    .inner-about {
+        padding: 0 30px;
+    }
+
+    .about-title {
+        font-size: 3rem;
+    }
+
+    .about-text {
+        line-height: 30px;
+        font-size: 2.3rem;
+    }
+
     .about-item {
         font-size: 5rem;
     }
@@ -119,9 +132,7 @@
         padding: 50px 30px;
     }
 
-    .contact-title,
-    .goal-title {
-        font-size: 5rem;
+    .contact-title {
         padding-bottom: 30px;
     }
 
@@ -154,4 +165,18 @@
     .soundtext {
         display: none;
     }
+
+    .contact-grid {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 30px;
+    }
+
+    .contact-about {
+        font-size: 3rem;
+        gap: 0;
+    }
+
 }

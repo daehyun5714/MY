@@ -94,82 +94,8 @@ $(document).ready(function () {
     $('.cursor').removeClass('active');
   })
 
+
   gsap.registerPlugin(ScrollTrigger);
-
-  const gsapText = gsap.timeline();
-  gsapText
-    .from('#about .num1', { autoAlpha: 0, duration: 1, y: 50 })
-    .to('#about .num1', { autoAlpha: 0, duration: 1 }, '+=1')
-
-    .from('#about .num2', { autoAlpha: 0, duration: 1, y: 50 }, '-=1')
-    .to('#about .num2', { autoAlpha: 0, duration: 1 }, '+=1')
-
-    .from('#about .num3', { autoAlpha: 0, duration: 1, y: 50 }, '-=1')
-    .to('#about .num3', { autoAlpha: 0, duration: 1 }, '+=1')
-
-    .from('#about .num4', { autoAlpha: 0, duration: 1, y: 50 }, '-=1')
-    .to('#about .num4', { autoAlpha: 0, duration: 1 }, '+=1')
-
-    .from('#about .num5', { autoAlpha: 0, duration: 1, y: 50 })
-
-
-  ScrollTrigger.create({
-    animation: gsapText,
-    trigger: "#about",
-    start: "top top",
-    end: "+=4000",
-    scrub: true,
-    pin: true,
-    markers: false,
-    anticipatePin: 1,
-  })
-  //about
-
-  const item1 = gsap.timeline({
-    scrollTrigger: {
-      trigger: '.portfolio-wrap',
-      start: '-15% 50%',
-      end: '0% 50%',
-      // markers: true,
-      scrub: 3
-    }
-  })
-
-  item1
-    .to('.portfolio-wrap .item1', { width: '100%' }, 'w')
-
-  const pin = gsap.timeline({
-    scrollTrigger: {
-      trigger: '.portfolio-wrap',
-      start: '0 0',
-      end: '100% 150%',
-      scrub: 3,
-      // markers: true
-    }
-  })
-
-  pin
-    .to('.portfolio-wrap .item2', { transform: 'translateY(0)' }, "a+=0.2")
-    .to('.portfolio-wrap .item2', { width: '100%' }, "a")
-    .to('.portfolio-wrap .item1 .port-wrap', { opacity: 0 }, "a+=0.2")
-
-    .to('.portfolio-wrap .item3', { transform: 'translateY(0)' }, "b+=0.2")
-    .to('.portfolio-wrap .item3', { width: '100%' }, "b")
-    .to('.portfolio-wrap .item2 .port-wrap', { opacity: 0 }, "b+=0.2")
-
-    .to('.portfolio-wrap .item4', { transform: 'translateY(0)' }, "c+=0.2")
-    .to('.portfolio-wrap .item4', { width: '100%' }, "c")
-    .to('.portfolio-wrap .item3 .port-wrap', { opacity: 0 }, "c+=0.2")
-
-  // gsap.to('.portfolio-wrap .item4 .port-wrap', {
-  //   scrollTrigger: {
-  //     trigger: '.portfolio-wrap',
-  //     start: "100% 100%",
-  //     end: "110% 100%",
-  //     scrub: 3,
-  //     // markers: true
-  //   }
-  // })
 
   window.addEventListener('load', () => {
     ScrollTrigger.refresh();
@@ -179,39 +105,52 @@ $(document).ready(function () {
     ScrollTrigger.refresh();
   });
 
-  gsap.utils.toArray('.reveal').forEach((item) => {
+  function resetScrollTriggers() {
+    // 모든 ScrollTrigger 삭제
+    ScrollTrigger.getAll().forEach(trigger => trigger.kill());
 
-    ScrollTrigger.create({
-      trigger: item,
-      start: 'top bottom',
-      end: 'bottom top',
-      onEnter: () => { animate(item) }
+    const item1 = gsap.timeline({
+      scrollTrigger: {
+        trigger: '.portfolio-wrap',
+        start: '-10% 50%',
+        end: '0% 50%',
+        // markers: true,
+        scrub: 3,
+      }
     })
-    item.style.opacity = '0'
-  })
 
-  const animate = (item) => {
+    item1
+      .to('.portfolio-wrap .item1', { width: '100%' }, 'w')
 
-    let x = 0;
-    let y = 0;
-    let delay = item.dataset.delay;
+    const pin = gsap.timeline({
+      scrollTrigger: {
+        trigger: '.portfolio-wrap',
+        start: '0 0',
+        end: '100% 150%',
+        scrub: 3,
+        // markers: true
+      }
+    });
 
-    if (item.classList.contains('Rright')) {
-      x = '100%'
-      y = 0
-    } else if (item.classList.contains('Rbtm')) {
-      x = 0
-      y = '100%'
-    } else {
-      x = '-100%'
-      y = 0
-    }
+    pin
+      .to('.portfolio-wrap .item2', { transform: 'translateY(0)' }, "a+=0.2")
+      .to('.portfolio-wrap .item2', { width: '100%' }, "a")
+      .to('.portfolio-wrap .item1 .port-wrap', { opacity: 0 }, "a+=0.2")
+      .to('.portfolio-wrap .item3', { transform: 'translateY(0)' }, "b+=0.2")
+      .to('.portfolio-wrap .item3', { width: '100%' }, "b")
+      .to('.portfolio-wrap .item2 .port-wrap', { opacity: 0 }, "b+=0.2")
+      .to('.portfolio-wrap .item4', { transform: 'translateY(0)' }, "c+=0.2")
+      .to('.portfolio-wrap .item4', { width: '100%' }, "c")
+      .to('.portfolio-wrap .item3 .port-wrap', { opacity: 0 }, "c+=0.2");
 
-    gsap.fromTo(item,
-      { autoAlpha: 0, x: x, y: y },
-      { autoAlpha: 1, x: 0, y: 0, delay: delay, duration: 1.25, overwrite: "auto", ease: "expo" }
-    )
+    ScrollTrigger.refresh();
   }
+
+  resetScrollTriggers();
+
+  window.addEventListener('resize', () => {
+    resetScrollTriggers();
+  });
 
   //contact
 
@@ -301,6 +240,5 @@ $(document).ready(function () {
     mouseCursor.style.top = e.clientY + "px";
   }
   // 커서
-
 
 }); //
