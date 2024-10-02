@@ -717,7 +717,7 @@ footer {
   transform: scaleX(1);
 }
 
-@media (hover: none) {
+@media (hover: none) and (pointer: coarse) {
   .cursor {
     display: none;
   }
