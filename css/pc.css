@@ -716,3 +716,14 @@ footer {
 .innermenu li a:hover::after {
   transform: scaleX(1);
 }
+
+@media (hover: none) {
+  *:hover {
+    background-color: inherit;
+    color: inherit;
+  }
+
+  * {
+    cursor: none
+  }
+}
