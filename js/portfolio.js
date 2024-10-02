@@ -94,6 +94,10 @@ $(document).ready(function () {
     $('.cursor').removeClass('active');
   })
 
+  if ('ontouchstart' in window || navigator.maxTouchPoints) {
+    $('body, html').off('mouseenter mouseleave');
+  }
+  // 모바일 장치에서는 마우스 엔터/리브 이벤트 제거
 
   gsap.registerPlugin(ScrollTrigger);
 

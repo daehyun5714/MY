@@ -718,12 +718,7 @@ footer {
 }
 
 @media (hover: none) {
-  *:hover {
-    background-color: inherit;
-    color: inherit;
-  }
-
-  * {
-    cursor: none
+  .cursor {
+    display: none;
   }
 }
